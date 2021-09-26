@@ -1,22 +1,11 @@
-/* eslint-disable import/no-anonymous-default-export */
 const API_KEY = "bd7184c08d5ed093c7092d4d808bb270";
 const API_BASE = "https://api.themoviedb.org/3";
 
-/* -Originais da netflix
--recomendados (trending)
--em alta (top rated)
--ação
--comédia
--terror
--romance
--documentários
 
-*/
-
-const basicFetch = async (endpoint) =>{
-    const req = await fetch(`${API_BASE}${endpoint}`);
-    const json = await req.json();
-    return json;
+const basicFetch = async (endpoint) => {
+  const req = await fetch(`${API_BASE}${endpoint}`);
+  const json = await req.json();
+  return json;
 }
 
 export default {
@@ -64,4 +53,20 @@ export default {
       },
     ];
   },
+  getMovieInfo: async (movieId, type) => {
+    let info = {}
+
+    if (movieId) {
+      switch (type) {
+        case 'movie':
+          info = await basicFetch(`/movie/${movieId}?language=pt-BR&api_key=${API_KEY}`)
+          break
+        case 'tv':
+          info = await basicFetch(`/tv/${movieId}?language=pt-BR&api_key=${API_KEY}`)
+          break
+      }
+    }
+
+    return info
+  }
 };
