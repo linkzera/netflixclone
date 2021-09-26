@@ -1,5 +1,4 @@
-# Getting Started with Create React App
-
+# ONLY FOR STUDY PURPOSES , ALL RIGHTS TO NETFLIX, AND Themoviedb.
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
